@@ -1,4 +1,10 @@
-!dist
+*.test.*
+.githooks
+.githooks
+.github
+.prettierrc.yml
+Makefile
+coverage
+jest.config.js
 src
 tsconfig.json
-.githooks
