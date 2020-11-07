@@ -2,7 +2,7 @@ import listenator from './';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-test('it should asynchronously yield callback arguments and finish', async () => {
+test('it should yield asynchronously delivered callback arguments and finish', async () => {
   const gen = listenator<number>((callback, done) => {
     let val = 0;
     const tick = () => {
@@ -29,7 +29,7 @@ test('it should asynchronously yield callback arguments and finish', async () =>
   expect(totalValues).toBe(3);
 });
 
-test('it should synchronously yield callback arguments and finish', async () => {
+test('it should yield synchronously delivered callback arguments and finish', async () => {
   const gen = listenator<number>((callback, done) => {
     callback(0);
     callback(1);
@@ -48,7 +48,7 @@ test('it should synchronously yield callback arguments and finish', async () => 
   expect(totalValues).toBe(3);
 });
 
-test('it should both asynchronously and synchronously yield callback arguments and finish', async () => {
+test('it should yield both asynchronously and synchronously delivered callback arguments and finish', async () => {
   const gen = listenator<number>(async (callback, done) => {
     await delay(10);
     callback(0);
@@ -69,7 +69,7 @@ test('it should both asynchronously and synchronously yield callback arguments a
   expect(totalValues).toBe(3);
 });
 
-test('it should both synchronously and asynchronously yield callback arguments and finish', async () => {
+test('it should yield both synchronously and asynchronously delivered callback arguments and finish', async () => {
   const gen = listenator<number>(async (callback, done) => {
     callback(0);
     callback(1);
