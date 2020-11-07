@@ -3,11 +3,11 @@ import listenator from './';
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 test('it should yield asynchronously delivered callback arguments and finish', async () => {
-  const gen = listenator<number>((callback, done) => {
+  const gen = listenator<number>((emit, done) => {
     let val = 0;
     const tick = () => {
       setTimeout(() => {
-        callback(val++);
+        emit(val++);
         if (val < 3) {
           tick();
         } else {
@@ -30,10 +30,10 @@ test('it should yield asynchronously delivered callback arguments and finish', a
 });
 
 test('it should yield synchronously delivered callback arguments and finish', async () => {
-  const gen = listenator<number>((callback, done) => {
-    callback(0);
-    callback(1);
-    callback(2);
+  const gen = listenator<number>((emit, done) => {
+    emit(0);
+    emit(1);
+    emit(2);
     done();
   });
 
@@ -49,12 +49,12 @@ test('it should yield synchronously delivered callback arguments and finish', as
 });
 
 test('it should yield both asynchronously and synchronously delivered callback arguments and finish', async () => {
-  const gen = listenator<number>(async (callback, done) => {
+  const gen = listenator<number>(async (emit, done) => {
     await delay(10);
-    callback(0);
+    emit(0);
     await delay(10);
-    callback(1);
-    callback(2);
+    emit(1);
+    emit(2);
     done();
   });
 
@@ -70,11 +70,11 @@ test('it should yield both asynchronously and synchronously delivered callback a
 });
 
 test('it should yield both synchronously and asynchronously delivered callback arguments and finish', async () => {
-  const gen = listenator<number>(async (callback, done) => {
-    callback(0);
-    callback(1);
+  const gen = listenator<number>(async (emit, done) => {
+    emit(0);
+    emit(1);
     await delay(10);
-    callback(2);
+    emit(2);
     await delay(10);
     done();
   });
