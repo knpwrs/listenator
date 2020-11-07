@@ -20,6 +20,10 @@ async function defer() {
   return promise;
 }
 
+/**
+ * Given a factory function, creates an asynchronous iterator which emits items passed to its
+ * callback.
+ */
 export default async function* listenator<T>(factory: Factory<T>) {
   // Set up iterator state
   const queue: Array<T> = [];
