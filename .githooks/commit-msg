@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# This hook ensures that the given commit message more or less matches the
+# conventional commits style
+# https://www.conventionalcommits.org/en/v1.0.0/
+
+echo "Checking commit message..."
+
+# Check line length
+
+LEN=$(sed -E '/# -{24} >8 -{24}/q' $1 | wc -L | cut -d' ' -f1)
+
+if [ $LEN -gt 100 ]; then
+  echo "ERROR: Commit message line longer than 100 characters"
+  exit 1
+fi
+
+# Check header format
+
+TYPES=(
+  build
+  chore
+  ci
+  docs
+  feat
+  fix
+  perf
+  refactor
+  revert
+  style
+  test
+)
+HEADER_PATTERN="(?:$(IFS="|"; echo "${TYPES[*]}"))(?:\(.+\))?:.+"
+HEADER=$(head -n1 $1)
+
+if ! head -n1 $1 | grep -Eq $HEADER_PATTERN; then
+  echo "ERROR: Commit message header doesn't match expected pattern"
+  exit 1
+fi
+
+# Done
+
+echo "All good!"

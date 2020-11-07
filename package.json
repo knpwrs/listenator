@@ -1,0 +1,30 @@
+{
+  "name": "listenator",
+  "version": "0.0.0",
+  "description": "Turn any event stream into an async iterator",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knpwrs/listenator.git"
+  },
+  "keywords": ["async", "iterator", "stream", "event"],
+  "author": "Ken Powers <ken@kenpowers.net> (https://knpw.rs)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knpwrs/listenator/issues"
+  },
+  "homepage": "https://github.com/knpwrs/listenator#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
+  }
+}
