@@ -34,6 +34,9 @@ export default async function* listenator<T>(factory: Factory<T>) {
   factory(
     // emit
     (t: T) => {
+      if (done) {
+        return;
+      }
       queue.push(t);
       resolve();
     },
