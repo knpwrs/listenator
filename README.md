@@ -5,6 +5,7 @@
 [![devDependency Status](https://img.shields.io/david/dev/knpwrs/listenator.svg)](https://david-dm.org/knpwrs/listenator#info=devDependencies)
 [![Build Status](https://img.shields.io/github/workflow/status/knpwrs/listenator/CI)](https://github.com/knpwrs/listenator/actions)
 [![Npm Version](https://img.shields.io/npm/v/listenator.svg)](https://www.npmjs.com/package/listenator)
+[![Deno](https://img.shields.io/badge/deno-ready-blue)](https://deno.land/x/listenator)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Badges](https://img.shields.io/badge/badges-7-orange.svg)](http://shields.io/)
 
@@ -101,6 +102,27 @@ const numbers = listenator((emit) => {
 for await (const [x, y, z] of numbers) {
   console.log(`(${x}, ${y}, ${z})`);
 }
+```
+
+### Deno
+
+```js
+import listenator from 'https://deno.land/x/listenator';
+
+const numbers = listenator((emit, done) => {
+  emit(1);
+  emit(2);
+  emit(3);
+  done();
+});
+
+// In an async context this will log 1, 2, and then 3:
+for await (const num of numbers) {
+  console.log(num);
+}
+
+// Execution picks up here because `done` was called
+console.log('Hello!');
 ```
 
 ## Contributing
