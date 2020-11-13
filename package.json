@@ -2,8 +2,8 @@
   "name": "listenator",
   "version": "1.1.1",
   "description": "Turn any event stream into an async iterator",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/mod.js",
+  "types": "dist/mod.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage",

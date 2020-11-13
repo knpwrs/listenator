@@ -1,4 +1,4 @@
-import listenator from './';
+import listenator from './mod';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
