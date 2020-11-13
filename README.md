@@ -107,7 +107,7 @@ for await (const [x, y, z] of numbers) {
 ### Deno
 
 ```js
-import listenator from 'https://deno.land/x/listenator';
+import listenator from 'https://deno.land/x/listenator/mod.ts';
 
 const numbers = listenator((emit, done) => {
   emit(1);
