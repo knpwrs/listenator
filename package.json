@@ -1,6 +1,6 @@
 {
   "name": "listenator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Turn any event stream into an async iterator",
   "main": "dist/mod.js",
   "types": "dist/mod.d.ts",
