@@ -7,7 +7,7 @@
 [![Npm Version](https://img.shields.io/npm/v/listenator.svg)](https://www.npmjs.com/package/listenator)
 [![Deno](https://img.shields.io/badge/deno-ready-blue)](https://deno.land/x/listenator)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Badges](https://img.shields.io/badge/badges-7-orange.svg)](http://shields.io/)
+[![Badges](https://img.shields.io/badge/badges-8-orange.svg)](http://shields.io/)
 
 Turn any event stream into an async generator. Inspired by [`eventChannel`][ec]
 from [`redux-saga`][rs]. Includes TypeScript typings.
