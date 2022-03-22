@@ -136,11 +136,16 @@ Please run `make init` in the root directory before making any commits so the
 * [`asynciterify`][aify] (less generic than this package, more
   implementation-bound, no TypeScript)
 
+## Other Modules
+
+* [`deferred-async-iterator`][dai] (JavaScript with Typings available)
+
 ## License
 
 **MIT**
 
 [ag]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
 [aify]: https://github.com/mattkrick/asynciterify
+[dai]: https://github.com/Richienb/deferred-async-iterator
 [ec]: https://redux-saga.js.org/docs/advanced/Channels.html#using-the-eventchannel-factory-to-connect-to-external-events
 [rs]: https://redux-saga.js.org/
