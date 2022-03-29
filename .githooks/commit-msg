@@ -34,7 +34,7 @@ HEADER_PATTERN="(?:$(IFS="|"; echo "${TYPES[*]}"))(?:\(.+\))?:.+"
 HEADER=$(head -n1 $1)
 
 if ! head -n1 $1 | grep -Eq $HEADER_PATTERN; then
-  echo "ERROR: Commit message header doesn't match expected pattern"
+  echo "ERROR: Commit message header doesn't match expected pattern: '''${head -n1 $1}'''"
   exit 1
 fi
 
